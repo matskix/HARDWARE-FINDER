@@ -1,1 +1,140 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HARDWARE FINDER</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <header>
+  <div class="header-left">
+    <label class="file-btn logo-upload" title="Click to upload logo">
+      <img id="logoImg" src="https://via.placeholder.com/56x56.png?text=LOGO" alt="Logo">
+      <input id="logoFile" type="file" accept="image/*" onchange="uploadLogo(event)">
+    </label>
+
+    <div style="flex:1; min-width:0; display:flex; align-items:center; gap:10px;">
+      <div class="magnifier-container">
+        <span class="magnifier">🔍</span>
+        <span class="spinningGear">⚙️</span>
+      </div>
+      <div id="headerTitle">Hardware Finder</div>
+    </div>
+  </div>
+</header>
+
+<button id="toolbar1Toggle" class="toolbar1-arrow" title="Show Toolbar">⚙️</button>
+
+<!-- Vertical Toolbar -->
+<div class="toolbar1-vertical" id="toolbar1">
+
+  <button onclick="exportCSV()" data-tooltip="Export database to CSV file">📤</button>
+
+  <label class="file-btn" data-tooltip="Import hardware list from CSV">📥
+    <input id="fileImport" type="file" accept=".csv" onchange="importCSV(event)">
+  </label>
+
+  <label class="file-btn" title="Upload Background Image">
+    🖼️
+    <input type="file" id="bgUpload" accept="image/*">
+  </label>
+
+  <button id="themeToggle" title="Toggle Light/Dark">🌙</button>
+  <button id="mobileActionBtn" class="action-btn">⚙️</button>
+  <button id="clearBtn" onclick="clearLocal()" title="Clear Database">🗑️</button>
+
+</div>
+
+<button id="fullscreenBtn" onclick="toggleFullscreen()" aria-label="Toggle fullscreen">⛶</button>
+
+<section class="grid">
+  <div class="card">
+    <div class="search-container">
+      <input id="search" placeholder="Search part number, description, or location" oninput="searchHardware()">
+    </div>
+    <div id="tableWrap">
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <th>Part Number</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Qty</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="results"></tbody>
+      </table>
+      <div id="noResults">No results found.</div>
+    </div>
+  </div>
+
+  <div class="card" id="addHardwareCard">
+    <h3 id="formTitle">Add Hardware</h3>
+    <form id="hwForm" onsubmit="event.preventDefault(); onSubmitForm();">
+      <input type="hidden" id="editId" value="">
+      <label>Part Number *</label>
+      <input id="partNumber" required>
+      <label>Description</label>
+      <textarea id="description" rows="3"></textarea>
+      <label>Location *</label>
+      <input id="location" required>
+      <label>Quantity</label>
+      <input id="quantity" type="number" min="0" value="100">
+
+      <div style="display:flex; gap:10px; margin-top:12px;">
+        <button type="submit">Save</button>
+        <button type="button" onclick="resetForm()" style="background:#6b7280;">Reset</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<button class="help-btn" id="openModalBtn" title="Show Instructions">📘 Help</button>
+
+<!-- Modal -->
+<div id="instructionModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModalBtn">&times;</span>
+
+    <!-- IMPORTANT: Removed duplicate IDs below -->
+    <div class="modal-toolbar">
+      <button class="addStickyNoteBtn">📝</button>
+      <button class="exportCsvBtn">📤</button>
+
+      <label class="file-btn">📥
+        <input type="file" class="fileImportModal" accept=".csv">
+      </label>
+
+      <label class="file-btn">🖼️
+        <input type="file" class="bgUploadModal" accept="image/*">
+      </label>
+
+      <button class="themeToggleModal">🌙</button>
+      <button class="mobileActionBtnModal">⚙️</button>
+      <button class="clearBtnModal">🗑️</button>
+    </div>
+  </div>
+</div>
+
+<footer class="license-footer">
+  🔍 HARDWARE FINDER © 2025 George Bravo — 
+  Licensed under 
+  <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">
+    GNU GPLv3
+  </a>.
+</footer>
+
+<!-- ✅ ALL SCRIPTS MOVED TO BOTTOM -->
+<script src="https://unpkg.com/sql.js@1.8.0/dist/sql-wasm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
