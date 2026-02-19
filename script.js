@@ -533,4 +533,3 @@ const modal = document.getElementById("instructionModal");
   closeBtn.onclick = () => modal.style.display = "none";
   window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 
-
