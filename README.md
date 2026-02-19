@@ -9,3 +9,4 @@ Your data stays local and private, with easy import/export as hardware.db or har
 
 With Hardware Finder, your workspace is stress-free, organized, and ready for flow. When everything has its place, creativity has no limits — and every project feels effortless.
 
+https://hardware-finder.rf.gd/
