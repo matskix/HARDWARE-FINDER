@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,44 +96,69 @@
 </section>
 
 <button class="help-btn" id="openModalBtn" title="Show Instructions">📘 Help</button>
-
 <!-- Modal -->
 <div id="instructionModal" class="modal">
   <div class="modal-content">
     <span class="close" id="closeModalBtn">&times;</span>
 
-    <!-- IMPORTANT: Removed duplicate IDs below -->
-    <div class="modal-toolbar">
-      <button class="addStickyNoteBtn">📝</button>
-      <button class="exportCsvBtn">📤</button>
+<section id="hardware-finder" style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 700px; margin: 0 auto; padding: 20px;">
+<h1 style="color: white;">Meet Hardware Finder</h1>
 
-      <label class="file-btn">📥
-        <input type="file" class="fileImportModal" accept=".csv">
-      </label>
+<p>We’ve all been there — mid-project, excited to create… and that one tool disappears. Frustration builds, time slips away, and you end up buying a replacement — only to find the original later.</p>
 
-      <label class="file-btn">🖼️
-        <input type="file" class="bgUploadModal" accept="image/*">
-      </label>
+<p>Enter <strong>Hardware Finder</strong> — built by makers, for makers. Instantly store, organize, and find every tool, bolt, and part you own. No more wasted time, no more duplicates — just freedom to create.</p>
 
-      <button class="themeToggleModal">🌙</button>
-      <button class="mobileActionBtnModal">⚙️</button>
-      <button class="clearBtnModal">🗑️</button>
+<p>Your data stays <strong>local and private</strong>, with easy <strong>import/export</strong> as <em>hardware.db</em> or <em>hardware.csv</em>. Safe, portable, and always under your control.</p>
+
+<p>With <strong>Hardware Finder</strong>, your workspace is stress-free, organized, and ready for flow. When everything has its place, creativity has no limits — and every project feels effortless.</p>
+</section>
+
+
+
+ <div class="section">
+     <h2>How to Use</h2>
+  <ul>
+    <li>To add, edit, or delete items, press <code>Ctrl + Alt + E</code> to unlock the editing functions.</li>
+    <li>After making changes, save your data. This will generate a <code>hardware.db</code> file in your <strong>Downloads</strong> folder.</li>
+    <li>Click this button <code>⚙️</code> to access the toolbar.</li>
+    <li>To restore your database, click <strong>Load</strong>, locate your <code>hardware.db</code> file, and confirm.</li>
+    <li>To export or import a CSV file, use the <strong>Export CSV</strong> and <strong>Import CSV</strong> buttons.</li>
+    <li class="optional">(Optional) You can also add a custom logo and background image.</li>
+  </ul>
+    </div>
+
+    <div class="section">
+      <h2>Toolbar Buttons</h2>
+      <div class="modal-toolbar">
+        <button id="addStickyNoteBtn" title="Add Sticky Note">📝</button>
+       
+        <button id="exportCsvBtn" title="Export CSV">📤</button>
+          
+        <label class="file-btn" title="Import CSV">📥
+          <input id="fileImport" type="file" accept=".csv">
+        </label>
+        <label class="file-btn" title="Upload Background Image">🖼️
+          <input type="file" id="bgUpload" accept="image/*">
+        </label>
+        <button id="themeToggle" title="Toggle Light/Dark">🌙</button>
+        <button id="mobileActionBtn" title="Add Hardware">⚙️</button>
+        <button id="clearBtn" title="Clear Database">🗑️</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>License</h2>
+      <pre>
+    Hardware Finder
+   Copyright (C) 2025 George Bravo
+   Email: <a href="mailto:matskix@gmail.com">matskix@gmail.com</a>
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License.
+      </pre>
     </div>
   </div>
 </div>
 
-<footer class="license-footer">
-  🔍 HARDWARE FINDER © 2025 George Bravo — 
-  Licensed under 
-  <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">
-    GNU GPLv3
-  </a>.
-</footer>
 
-<!-- ✅ ALL SCRIPTS MOVED TO BOTTOM -->
-<script src="https://unpkg.com/sql.js@1.8.0/dist/sql-wasm.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-<script src="script.js"></script>
 
-</body>
-</html>
